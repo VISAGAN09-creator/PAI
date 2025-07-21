@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Your AI - MyPersonalAI</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">MyPersonalAI</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="train.html" class="nav-link active">Train</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chat.html" class="nav-link">Talk</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="train-main">
+        <div class="container">
+            <div class="train-header">
+                <h1 class="page-title">
+                    <span class="gradient-text">Train Your AI</span>
+                </h1>
+                <p class="page-subtitle">
+                    Help us understand how you think and work so we can create your perfect AI companion.
+                </p>
+            </div>
+
+            <div class="train-container">
+                <form id="training-form" class="training-form">
+                    <div class="form-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">
+                            <span id="current-step">0</span> of <span id="total-steps">6</span> completed
+                        </span>
+                    </div>
+
+                    <div class="form-sections">
+                        <div class="form-section active" data-section="1">
+                            <div class="form-group">
+                                <label for="name">What's your name?</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                                <div class="input-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section" data-section="2">
+                            <div class="form-group">
+                                <label for="field">What's your field of work?</label>
+                                <input type="text" id="field" name="field" placeholder="e.g., Software Development, Marketing, Research" required>
+                                <div class="input-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section" data-section="3">
+                            <div class="form-group">
+                                <label for="approach">How do you approach problem-solving?</label>
+                                <textarea id="approach" name="approach" rows="4" placeholder="Describe your typical process when facing a challenging problem..." required></textarea>
+                                <div class="input-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section" data-section="4">
+                            <div class="form-group">
+                                <label for="tools">What are your favorite tools and methods?</label>
+                                <input type="text" id="tools" name="tools" placeholder="e.g., Notion, Mind mapping, Pomodoro technique" required>
+                                <div class="input-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section" data-section="5">
+                            <div class="form-group">
+                                <label for="style">How would you describe your communication style?</label>
+                                <select id="style" name="style" required>
+                                    <option value="">Choose your style</option>
+                                    <option value="direct">Direct and concise</option>
+                                    <option value="detailed">Detailed and thorough</option>
+                                    <option value="casual">Casual and friendly</option>
+                                    <option value="formal">Professional and formal</option>
+                                    <option value="creative">Creative and expressive</option>
+                                </select>
+                                <div class="input-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section" data-section="6">
+                            <div class="form-group">
+                                <label for="example">Share a sample problem and your solution</label>
+                                <textarea id="example" name="example" rows="5" placeholder="Describe a recent challenge you faced and how you solved it..." required></textarea>
+                                <div class="input-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-navigation">
+                        <button type="button" id="prev-btn" class="btn btn-secondary" disabled>
+                            <span>Previous</span>
+                        </button>
+                        <button type="button" id="next-btn" class="btn btn-primary">
+                            <span>Next</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <button type="submit" id="submit-btn" class="btn btn-primary" style="display: none;">
+                            <span>Complete Training</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="success-message" class="success-message" style="display: none;">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <h2>Training Complete!</h2>
+                    <p>Your personal AI model is being created. This process usually takes a few minutes.</p>
+                    <div class="success-actions">
+                        <a href="chat.html" class="btn btn-primary">
+                            <span>Start Chatting</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="index.html" class="btn btn-secondary">
+                            <span>Back to Home</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 MyPersonalAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./train.js"></script>
+</body>
+</html>
